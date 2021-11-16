@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>OOP Principles</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+	  img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	  }
+	  p {
+		text-align: left;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+	  }
+	  code {
+		display: inline-block;
+		background: #f2f2f2;
+		border: 1px solid #d1d2d3;
+		padding: 0px 4px;
+		margin-right: 4px;
+		border-radius: 4px;
+		color: #697A89;
+	  }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="azure.css" rel="stylesheet">
+  </head>
+  <body class="d-flex text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">OOP Principles</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="git.html">Git</a>
+        <a class="nav-link active" aria-current="page" href="Bootstrap.html">Bootstrap</a>
+        <a class="nav-link" href="AzureCloud.html">Azure</a>
+        <a class="nav-link" href="docker.html">Docker</a>
+        <a class="nav-link" href="linux.html">Linux</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="px-3">
+    <br><h1><h1>OOP Principles in Calculator program</h1>
+	<p> OOP or object-oriented programming is a model of programming that designs software around the organization of objects and data rather than functions and logic. Our calculator program is written based on the 4 core OOP principles discussed below.</p> <br>
+	<b><p class="lead">Encapsulation</p></b> <br>
+	<p>
+    Encapsulation is the idea that describes wrapping attributes and behavior into a class.
+	Objects are instances of a class. When an object is instantiated, it encapsulates its variables and functions from the class into a single unit.
+	Typically, variables in a class are set to private and can only be modified by public functions that can be used outside the class in order to avoid accidental change of the variables. <br><br>
+    An example of encapsulation in our calculator program is in our calculations class:<br><br>
+	<img src="pictures/calculations.py.jpg" alt="calculations.py" class="center" style="width:100%;"><br>
+	<b><i>Note:</b></i> The full calculations class can be viewed here: <a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py</a> (Full script not shown here).<br><br><br>
+	In our example, we can see that we create a Calculations class on line 8. On line 11, we give our Calculations class a list variable names history to store our calcuation history.
+	We also define several methods including add_calculation() (line 14), clear_history() (line 20), get_calculation()(line 26), and remove_calculation() (line 36) that modify our history variable by appending, clearing, returning, and removing from it.
+	When a Calculations object is instantiated from the Calculations class, it acts as a single unit that encapsulates the history variable and all of its functions that can alter the history variable.
+	<br><br><br></p>
+	<b><p class="lead">Inheritance</p></b> <br>
+	<p>
+    Inheritance is<br><br>
+	2. 
+	<br><br><br></p>
+	<b><p class="lead">Polymorphism</p></b> <br>
+	<p>
+    Polymorphism is the ability to use a common interface for multiple forms of data types.<br><br>
+    An example of polymorphism in our calculator program is in our operation scripts: addition.py, substraction.py, multiplication.py, division.py.<br> 
+	Let's first look at addition.py<br><br>
+	<img src="pictures/addition.py.jpg" alt="addition.py" class="center" style="width:100%;"><br>
+	Here we can see there the addition class inherits from the Calculation class. In the addition class, a method of get_result() is defined.<br><br>
+	Now let's look at the subtraction.py<br>
+	<img src="pictures/subtraction.py.jpg" alt="subtraction.py" class="center" style="width:100%;"><br>
+	Here we see that there is a subtraction class defined that also inherits from the Calculation class. It also defines the same method called get_result(), however, it is getting the result for a different type of calculation: subtraction.
+	This is an example of polymorphism where we use the same interface for different objects to make the code more efficient.<br><br>
+	<b><i>Note:</b></i> All of the operation classes can be viewed here: <a href="https://github.com/tlr24/calc_project/tree/main/calculator/operations">https://github.com/tlr24/calc_project/tree/main/calculator/operations</a>.
+	<br><br><br></p>
+	<b><p class="lead">Abstraction</p> </b> <br>
+	<p>
+    Abstraction focuses on hiding the internal implementations of a process or method from the user.
+	<br>
+	<br><br><br></p>
+	
+    </h1></h1>
+
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p style="text-align: center;">Creators: <a href="https://github.com/tlr24/IS218Project2" class="text-white">Talaar</a></p>
+  </footer>
+</div>
+
+
+    
+  </body>
+</html>
