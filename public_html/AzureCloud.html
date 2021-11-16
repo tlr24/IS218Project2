@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Azure Cloud Tutorial</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+	  img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	  }
+	  p {
+		text-align: left;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+	  }
+	  code {
+		display: inline-block;
+		background: #f2f2f2;
+		border: 1px solid #d1d2d3;
+		padding: 0px 4px;
+		margin-right: 4px;
+		border-radius: 4px;
+		color: #697A89;
+	  }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="azure.css" rel="stylesheet">
+  </head>
+  <body class="d-flex text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Azure Cloud</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="git.html">Git</a>
+        <a class="nav-link active" aria-current="page" href="Bootstrap.html">Bootstrap</a>
+        <a class="nav-link" href="AzureCloud.html">Azure</a>
+        <a class="nav-link" href="docker.html">Docker</a>
+        <a class="nav-link" href="linux.html">Linux</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="px-3">
+    <br><h1><h1>Tutorial on Hosting Docker App in Azure Cloud</h1>
+    <br><p>
+    1. Open the folder where your website is hosted locally in the File Explorer.<br><br>
+    2. Right click in the folder and press “Git Bash Here” <br><br>
+	<img src="pictures/GitBash.jpg" alt="Git Bash" class="center" style="width:100%;">
+	<b><i>Note:</b></i> If you do not see this option, go to <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> and download git to be able to see the git bash CLI. <br><br><br>
+	After pressing “Git Bash Here”, a command line prompt should appear similar to the following: <br><br>
+    <img src="pictures/GitBashCLI.jpg" alt="Git Bash" class="center" style="width:100%;"><br>
+	3. Type <code>docker context show</code> and press enter to make sure you are in the default context. It should say ‘default’. If not, type <code>docker context use default</code> to switch to default. <br><br>
+    <img src="pictures/GitBash2.jpg" alt="Git Bash" class="center" style="width:100%;"><br>
+	4. Next, type <code>docker build -t user-id/my-website .</code> and press enter. In this case, “user-id” should be replaced with your user id on Docker Hub. Here, we use “my-website” as the name of the image for the purposes of this tutorial. This will build an image of your website. <br>
+	<b><i>Note:</b></i> You cannot build images in the azure command line. Must be in the default docker context. <br><br>
+    5. To test that your website image is built correctly locally, type <code>docker run -dp 80:80 my-website</code> and press enter. Then type in “localhost” in your browser to see the website. <br><br>
+    6. Once you have checked that the image was built correctly, type <code>docker push user-id/image-name:latest</code> where user-id is your respective user id on Docker Hub and the image-name matches the name of the image you built. <br><br>
+	7. Now we need to connect to Azure Cloud. Type the command <code>docker login azure</code>. This will open up a window in your browser asking you to log into your Azure Cloud account. Make sure to login with your account that has a subscription to the service. <br><br>
+	8. Once logged in, type <code>docker context create aci azureCloud</code>. This will create a new azureCloud context. <br><br>
+	<b><i>Note:</b></i> If you get the “no subscriptions found” message, make sure you are subscribed to the azure cloud service. <br><br>
+	9. Next, switch to the new azureCloud context you just created by typing in <code>docker context use azureCloud</code>. <br><br>
+	You can type <code>docker context show</code> to make sure you are in the right context. <br><br>
+	10. Once you are in the azureCloud context, type in <code>docker run --domainname website -dp 80:80 docker-id/image-name</code>. <br><br>
+	In this tutorial, image-name can be replaced with “my-website” while docker-id should be your docker id used to push your image to Docker Hub. Whatever is put after --domainname will become the name of the server hosting the website and will be part of the URL. This will run the website image from Docker Hub on Azure Cloud. <br><br>
+	11. To see your website running on Azure Cloud, type <code>docker ps</code>. Copy and paste the URL listed under “Ports”. In this case, it would be website.eastus.azurecontainer.io. <br><br>
+	<img src="pictures/AzureRun.jpg" alt="Git Bash" class="center" style="width:100%;"><br>
+	12. Paste the URL into your browser to see your website/docker container hosted on Azure Cloud. <br><br><br><br>
+	More information on how to deploy containers to Azure ACI using Docker CLI and Compose and be found at: 
+    <a href="https://www.docker.com/blog/how-to-deploy-containers-to-azure-aci-using-docker-cli-and-compose/">https://www.docker.com/blog/how-to-deploy-containers-to-azure-aci-using-docker-cli-and-compose/</a><br><br><br><br>
+	</p>
+	
+    </h1></h1>
+
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p style="text-align: center;">Creators: <a href="https://github.com/tlr24/IS218Project1" class="text-white">Syed & Talaar</a></p>
+  </footer>
+</div>
+
+
+    
+  </body>
+</html>

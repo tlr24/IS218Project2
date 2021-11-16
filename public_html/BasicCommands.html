@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Basic Commands</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Commands</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="git.html">Git</a>
+        <a class="nav-link active" aria-current="page" href="Bootstrap.html">Bootstrap</a>
+        <a class="nav-link" href="AzureCloud.html">Azure</a>
+        <a class="nav-link" href="docker.html">Docker</a>
+        <a class="nav-link" href="linux.html">Linux</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1><h1>TERMINAL</h1>
+    <p>
+    pwd - current directory <br>
+    ls - list contents for current folder <br>
+    cd - change directory <br>
+    mkdir - make new directory <br>
+    mv - move and copy file <br>
+    touch - new file <br>
+    vi - command/insert <br>
+    </p>
+    
+  <h1>GIT</h1>
+    <p>
+    git init - initialize git <br>
+    git add ... ("." includes all files) - add files to local repo <br>
+    git commit -m ... - commits files to remote <br>
+    git checkout (-b) <branch> (-b makes new branch and switches to it) - navigate between branches <br>
+    git push <remote> <branch> - push files to remote repo <br>
+    </p>
+  
+  
+  <h1>Docker</h1>
+  <p>
+    docker compose up - start or restart all the services defined in a docker-compose.yml. <br>
+    docker compose down - stops and removes container <br>
+    docker ps - lists running containers <br>
+    docker kill <container id> - shuts the container off <br>
+	docker rm < container-id > - deletes the container<br>
+	docker build -t < container > . - Builds a container image<br>
+	docker run -dp 80:80 < container > - Runs the container in the background at the specified port numbers<br>
+  </p></h1></h1>
+  <!--
+    <p class="lead">Learn commands first.</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Basic Commands</a>
+    </p>-->
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Creators: <a href="https://github.com/tlr24/IS218Project1" class="text-white">Syed & Talaar</a></p>
+  </footer>
+</div>
+
+
+    
+  </body>
+</html>
