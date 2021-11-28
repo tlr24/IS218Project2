@@ -76,39 +76,44 @@
 	AAA is a pattern of testing that helps determine whether the functions in a program are working as expected. Testing is important because it helps us pinpoint problem areas in our code in development before deploying problematic code. It also allows us to keep track of where code breaks as APIs change and new code is added later on.<br>
 	To start, AAA stands for Arrange, Act, and Assert.
 	<br><br>Our calculator program includes tests for each function based on the AAA testing pattern discussed below. <br><br><br>
-	<p>For this article, we will be using the following function found in <a href="https://github.com/tlr24/calc_project/blob/main/calculator/calculator.py">calculator.py</a> for testing using the AAA testing pattern:</p>
+	<p>For this article, we will be using the following function, <code>add_numbers()</code>, found in <a href="https://github.com/tlr24/calc_project/blob/main/calculator/calculator.py">calculator.py</a> for testing using the AAA testing pattern:</p>
 	<img src="pictures/add_numbers.jpg" alt="calculator.py" class="center" style="width:75%;"><br>
 	<b><p class="lead">ARRANGE</p></b> <br>
 	<p>
-    Arranging is the process of arranging the inputs and targets needed to set up for the test cases. <br><br>
-    An example of encapsulation in our calculator program is in our calculations class:<br><br>
-	<img src="pictures/calculations.py.jpg" alt="calculations.py" class="center" style="width:100%;"><br>
-	<b><i>Note:</b></i> The full calculations class can be viewed here: <a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py</a> (Full script not shown here).<br><br><br>
-	In our example, we can see that we create a Calculations class on line 8. On line 11, we give our Calculations class a list variable names history to store our calcuation history.
-	We also define several methods including <code>add_calculation()</code> (line 14), <code>clear_history()</code> (line 20), <code>get_calculation()</code>(line 26), and <code>remove_calculation()</code> (line 36) that modify our history variable by appending, clearing, returning, and removing from it.
-	When a Calculations object is instantiated from the Calculations class, it acts as a single unit that encapsulates the history variable and all of its functions that can alter the history variable.
+    <b>Arranging</b> is the process of arranging the inputs and targets needed to set up for the test cases. In order to test the functionality of a basic unit of code, we need to make sure we have the necessary operations, settings and/or variables set up and prepped.<br><br>
+    In our example function from the calculator class, the arranging step should look like this:<br><br>
+	<code>my_tuple = (1, 1)</code><br><br>
+	Here, we are arranging a tuple for the <code>add_numbers()</code> method as it takes in a tuple of numbers to add. We need to have a tuple of numbers to add to make sure we can test the functionality.
 	<br><br><br></p>
 	<b><p class="lead">ACT</p> </b> <br>
 	<p>
-    Abstraction focuses on hiding the internal implementations of a process or method from the user. <br><br>
-	An example of abstraction in our calculator program is found in the calculator class. 
-	In the calculator class, there are simple methods for basic calculator operations including <code>add_numbers</code>, <code>subtract_numbers</code>, <code>multiple_numbers</code>, and <code>divide_numbers</code>. <br><br>
-	The actual code that does all the calculating for these methods is hidden behind the <code>add_addition_calculation</code> (etc.) methods found in the Calculations class which then inherits all the Addition, Subtraction, etc. classes that contain the methods with the actual code to do the calculations. <br><br>
-	<a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">Calculations.py</a>: <img src="pictures/abstractCalculations.jpg" alt="abstractCalculations" class="center" style="width:100%;"><br>
-	The user only needs to call <code>add_numbers</code> to do their addition calculation as the actual code is hidden from them in the Addition class. 
-	Abstraction makes it easier for the user to use the calculator interface with the easy calculation methods that hides the real code behind the operation. 
+    The <b>Act</b> stage is where we call the function to be tested. This is typically a function or method call as in this case, we are testing a method. The action is called so we can target whether it is behaving correctly or not in the next step. <br><br>
+	In our example, we would be calling the <code>add_numbers()</code> function that we are testing like this:<br><br>
+	<code>Calculator.add_numbers(my_tuple)</code>
 	<br><br><br></p>
 	<b><p class="lead">ASSERT</p> </b> <br>
 	<p>
-    Abstraction focuses on hiding the internal implementations of a process or method from the user. <br><br>
-	An example of abstraction in our calculator program is found in the calculator class. 
-	In the calculator class, there are simple methods for basic calculator operations including <code>add_numbers</code>, <code>subtract_numbers</code>, <code>multiple_numbers</code>, and <code>divide_numbers</code>. <br><br>
-	<img src="pictures/abstract.jpg" alt="abstract" class="center" style="width:100%;"><br>
-	The actual code that does all the calculating for these methods is hidden behind the <code>add_addition_calculation</code> (etc.) methods found in the Calculations class which then inherits all the Addition, Subtraction, etc. classes that contain the methods with the actual code to do the calculations. <br><br>
-	<a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">Calculations.py</a>: <img src="pictures/abstractCalculations.jpg" alt="abstractCalculations" class="center" style="width:100%;"><br>
-	The user only needs to call <code>add_numbers</code> to do their addition calculation as the actual code is hidden from them in the Addition class. 
-	Abstraction makes it easier for the user to use the calculator interface with the easy calculation methods that hides the real code behind the operation. 
+    Lastly, the <b>Assert</b> stage is where we write an assert statement to make sure we get our expected outcome as a result of our function call. The assert function verifies that we received the correct response for the behavior and it lets us determine if the test passes or fails. <br><br>
+	In our example, we would call the following <b>assert</b> statement to make sure that the last calculation result value is 2 as is expected of adding the numbers we fed the function in the arrange stage:<br><br>
+	<code>assert Calculator.get_last_result_value() == 2</code> <br><br><br>
+	If we run this test (using pylint) we should be able to see if our function passes the test and whether or not it functions as we expect it to. This helps us narrow down issues in our code and makes sure that every unit of code in our program functions properly.
+	Each function in a program should have a test function starting with the name starting with 'test_' in order for us to run pytest and see if our code works as expected.<br><br>
+	You can learn more about pytest here: <a href="https://docs.pytest.org/en/6.2.x/contents.html">https://docs.pytest.org/en/6.2.x/contents.html</a>.<br><br>
+	AAA testing helps us do basic unit testing and feature testing following the behavior-driven development concept of Given-When-Then. <br><br>
+	You can learn more about AAA testing here: <a href="https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/">https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/</a>.<br><br>
+	Here is the final test function for our <code>add_numbers()</code> method:<br><br>
+	<img src="pictures/test_add_numbers.jpg" alt="calculator_test.py" class="center" style="width:75%;"><br>
+	The full calculator_test.py script can be viewed here: <a href="https://github.com/tlr24/calc_project/blob/main/tests/calculator_test.py">https://github.com/tlr24/calc_project/blob/main/tests/calculator_test.py</a>
 	<br><br><br></p>
+	<b><p class="lead">USING EXTERNAL DATA</p> </b> <br>
+	<p>
+	In python, we can use external data in our code using <b>pandas</b>, a data analysis and manipulation tool. Pandas allows us to read external files to use their data in our unit and feature tests.<br><br>
+	An example of reading using external data in our calculator program can be found in csv_reader.py:<br><br>
+	<img src="pictures/csv_reader.jpg" alt="csv_reader.py" class="center" style="width:100%;"><br>
+	You can view the full csv_reader.py script here: <a href="https://github.com/tlr24/calc_project/blob/main/calculator/utilities/csv_reader.py">https://github.com/tlr24/calc_project/blob/main/calculator/utilities/csv_reader.py</a>.<br><br>
+	You can view the full csv_reader_test.py script to see how to use the external data in testing here: <a href="https://github.com/tlr24/calc_project/blob/main/tests/csv_reader_test.py">https://github.com/tlr24/calc_project/blob/main/tests/csv_reader_test.py</a>.<br><br>
+	You can learn more about pandas here: <a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a>.
+	<br><br><br><br></p>
 	
     </h1></h1>
 
