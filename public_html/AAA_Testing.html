@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>AAA Testing</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+	  img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	  }
+	  p {
+		text-align: left;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+	  }
+	  code {
+		display: inline-block;
+		background: #f2f2f2;
+		border: 1px solid #d1d2d3;
+		padding: 0px 4px;
+		margin-right: 4px;
+		border-radius: 4px;
+		color: #697A89;
+	  }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="azure.css" rel="stylesheet">
+  </head>
+  <body class="d-flex text-center text-white bg-dark">
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">AAA Testing</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="git.html">Git</a>
+        <a class="nav-link active" aria-current="page" href="Bootstrap.html">Bootstrap</a>
+        <a class="nav-link" href="AzureCloud.html">Azure</a>
+        <a class="nav-link" href="docker.html">Docker</a>
+        <a class="nav-link" href="linux.html">Linux</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="px-3">
+    <br><h1><h1>AAA Testing</h1>
+	AAA is a pattern of testing that helps determine whether the functions in a program are working as expected. Testing is important because it helps us pinpoint problem areas in our code in development before deploying problematic code. It also allows us to keep track of where code breaks as APIs change and new code is added later on.<br>
+	To start, AAA stands for Arrange, Act, and Assert.
+	<br><br>Our calculator program includes tests for each function based on the AAA testing pattern discussed below. <br><br><br>
+	<p>For this article, we will be using the following function found in <a href="https://github.com/tlr24/calc_project/blob/main/calculator/calculator.py">calculator.py</a> for testing using the AAA testing pattern:</p>
+	<img src="pictures/add_numbers.jpg" alt="calculator.py" class="center" style="width:75%;"><br>
+	<b><p class="lead">ARRANGE</p></b> <br>
+	<p>
+    Arranging is the process of arranging the inputs and targets needed to set up for the test cases. <br><br>
+    An example of encapsulation in our calculator program is in our calculations class:<br><br>
+	<img src="pictures/calculations.py.jpg" alt="calculations.py" class="center" style="width:100%;"><br>
+	<b><i>Note:</b></i> The full calculations class can be viewed here: <a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py</a> (Full script not shown here).<br><br><br>
+	In our example, we can see that we create a Calculations class on line 8. On line 11, we give our Calculations class a list variable names history to store our calcuation history.
+	We also define several methods including <code>add_calculation()</code> (line 14), <code>clear_history()</code> (line 20), <code>get_calculation()</code>(line 26), and <code>remove_calculation()</code> (line 36) that modify our history variable by appending, clearing, returning, and removing from it.
+	When a Calculations object is instantiated from the Calculations class, it acts as a single unit that encapsulates the history variable and all of its functions that can alter the history variable.
+	<br><br><br></p>
+	<b><p class="lead">ACT</p> </b> <br>
+	<p>
+    Abstraction focuses on hiding the internal implementations of a process or method from the user. <br><br>
+	An example of abstraction in our calculator program is found in the calculator class. 
+	In the calculator class, there are simple methods for basic calculator operations including <code>add_numbers</code>, <code>subtract_numbers</code>, <code>multiple_numbers</code>, and <code>divide_numbers</code>. <br><br>
+	The actual code that does all the calculating for these methods is hidden behind the <code>add_addition_calculation</code> (etc.) methods found in the Calculations class which then inherits all the Addition, Subtraction, etc. classes that contain the methods with the actual code to do the calculations. <br><br>
+	<a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">Calculations.py</a>: <img src="pictures/abstractCalculations.jpg" alt="abstractCalculations" class="center" style="width:100%;"><br>
+	The user only needs to call <code>add_numbers</code> to do their addition calculation as the actual code is hidden from them in the Addition class. 
+	Abstraction makes it easier for the user to use the calculator interface with the easy calculation methods that hides the real code behind the operation. 
+	<br><br><br></p>
+	<b><p class="lead">ASSERT</p> </b> <br>
+	<p>
+    Abstraction focuses on hiding the internal implementations of a process or method from the user. <br><br>
+	An example of abstraction in our calculator program is found in the calculator class. 
+	In the calculator class, there are simple methods for basic calculator operations including <code>add_numbers</code>, <code>subtract_numbers</code>, <code>multiple_numbers</code>, and <code>divide_numbers</code>. <br><br>
+	<img src="pictures/abstract.jpg" alt="abstract" class="center" style="width:100%;"><br>
+	The actual code that does all the calculating for these methods is hidden behind the <code>add_addition_calculation</code> (etc.) methods found in the Calculations class which then inherits all the Addition, Subtraction, etc. classes that contain the methods with the actual code to do the calculations. <br><br>
+	<a href="https://github.com/tlr24/calc_project/blob/main/calculator/history/calculations.py">Calculations.py</a>: <img src="pictures/abstractCalculations.jpg" alt="abstractCalculations" class="center" style="width:100%;"><br>
+	The user only needs to call <code>add_numbers</code> to do their addition calculation as the actual code is hidden from them in the Addition class. 
+	Abstraction makes it easier for the user to use the calculator interface with the easy calculation methods that hides the real code behind the operation. 
+	<br><br><br></p>
+	
+    </h1></h1>
+
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p style="text-align: center;">Creator: <a href="https://github.com/tlr24/IS218Project2" class="text-white">Talaar</a></p>
+  </footer>
+</div>
+
+
+    
+  </body>
+</html>
