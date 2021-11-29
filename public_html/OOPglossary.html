@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/dist/css/dropdown.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -62,11 +63,20 @@
       <h3 class="float-md-start mb-0">OOP Glossary</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="git.html">Git</a>
-        <a class="nav-link active" aria-current="page" href="Bootstrap.html">Bootstrap</a>
-        <a class="nav-link" href="AzureCloud.html">Azure</a>
-        <a class="nav-link" href="docker.html">Docker</a>
-        <a class="nav-link" href="linux.html">Linux</a>
+		<a class="nav-link" href="OOPglossary.html">OOP Terms</a>
+		<a class="nav-link" href="AAA_Testing.html">AAA Testing</a>
+		<a class="nav-link" href="OOPprinciples.html">OOP Princ.</a>
+		<a class="nav-link" href="SOC.html">SoC</a>
+		<div class="dropdown nav-link">
+		  <button class="dropbtn">P1</button>
+		  <div class="dropdown-content nav-link">
+			<a class="nav-link" href="git.html">Git</a>
+			<a class="nav-link active" aria-current="page" href="Bootstrap.html">Bootstrap</a>
+			<a class="nav-link" href="AzureCloud.html">Azure</a>
+			<a class="nav-link" href="docker.html">Docker</a>
+			<a class="nav-link" href="linux.html">Linux</a>
+		  </div>
+		</div>
       </nav>
     </div>
   </header>
@@ -74,11 +84,11 @@
   <main class="px-3"><br>
 	<h1><h1>OOP Glossary</h1><br>
 	<p> OOP or object-oriented programming uses many concepts including:
-	Factory, instantiation, object, class, namespace, constructor, fixture, type hint, type cast, unit test, static, class method, facade, method, property
+	Factory, instantiation, object, class, namespace, constructor, fixture, type hint, type cast, unit test, static, class method, facade, method, property, linting, etc.
 	</p> <br><br>
     <p>
 	<b>pylint</b> - Pylint is a tool used to catch errors in python code development as well as to make sure that python code reaches the PEP8 python standards of how and in what style python code should be written.<br><br>
-	More information about how to install and implement pylint for your development environment can be found here: <a href="https://pylint.org/">https://pylint.org/</a>.<br>
+	More information about how to install and implement pylint for your development environment can be found here: <a href="https://pylint.org/">https://pylint.org/</a>.<br><br>
 	More information on the PEP8 standards and style guide can be found here: <a href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a>.<br><br>
 	
     <b>factory</b> - A factory makes objects instead of just instantiating them. This helps centralize object creation.<br><br>
